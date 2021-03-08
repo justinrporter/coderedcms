@@ -3,10 +3,10 @@ from django.conf import settings
 from functools import lru_cache
 
 
-PROJECT_DIR = settings.PROJECT_DIR if getattr(settings, 'PROJECT_DIR') else os.path.dirname(
+PROJECT_DIR = settings.PROJECT_DIR if hasattr(settings, 'PROJECT_DIR') else os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))
 )
-BASE_DIR = settings.BASE_DIR if getattr(settings, 'BASE_DIR') else os.path.dirname(PROJECT_DIR)
+BASE_DIR = settings.BASE_DIR if hasattr(settings, 'BASE_DIR') else os.path.dirname(PROJECT_DIR)
 
 DEFAULTS = {
     'PROTECTED_MEDIA_URL': '/protected/',
